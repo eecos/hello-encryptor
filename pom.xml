@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>encryptor-boot</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>encryptor-boot</name>
     <description>encryptor-boot</description>
     <properties>
@@ -24,16 +24,17 @@
         <!--docker相关配置-->
         <docker.registry>harbor.fulltruck.net</docker.registry>
         <docker.host>https://harbor.fulltruck.net</docker.host>
-        <docker.namespace>gas</docker.namespace>
-        <docker.username>admin</docker.username>
-        <docker.password>1qaz2wsx</docker.password>
-        <docker.plugin.version>0.43.0</docker.plugin.version>
+        <docker.namespace>demo</docker.namespace>
 
+        <!--<docker.registry>192.168.2.200:5757</docker.registry>
+        <docker.host>http://192.168.2.200:2375</docker.host>
+        <docker.namespace>demo</docker.namespace>-->
+        <docker.plugin.version>0.26.0</docker.plugin.version>
+        <versions-maven-plugin.version>2.3</versions-maven-plugin.version>
         <spring.checkstyle.version>0.0.34</spring.checkstyle.version>
         <git.commit.version>2.2.5</git.commit.version>
-
-
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -72,6 +73,14 @@
     </dependencies>
 
     <build>
+        <finalName>${project.name}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -81,12 +90,7 @@
                     <configuration>
                         <dockerHost>${docker.host}</dockerHost>
                         <registry>${docker.registry}</registry>
-                        <!--<authConfig>
-                            <push>
-                                <username>${docker.username}</username>
-                                <password>${docker.password}</password>
-                            </push>
-                        </authConfig>-->
+                        <pushRegistry>${docker.registry}</pushRegistry>
                         <images>
                             <image>
                                 <name>${docker.registry}/${docker.namespace}/${project.name}:${project.version}</name>
@@ -97,8 +101,18 @@
                         </images>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${versions-maven-plugin.version}</version>
+                    <configuration>
+                        <generateBackupPoms>false</generateBackupPoms>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
+
         <plugins>
             <!--代码格式插件，默认使用spring 规则-->
             <plugin>
@@ -131,6 +145,11 @@
                 <configuration>
                     <skip>false</skip>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
             </plugin>
 
             <plugin>

@@ -80,24 +80,6 @@
 
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>io.fabric8</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>${docker.plugin.version}</version>
-                    <configuration>
-                        <dockerHost>${docker.host}</dockerHost>
-                        <registry>${docker.registry}</registry>
-                        <pushRegistry>${docker.registry}</pushRegistry>
-                        <images>
-                            <image>
-                                <name>${docker.registry}/${docker.namespace}/${project.name}:${project.version}</name>
-                                <build>
-                                    <dockerFile>${project.basedir}/Dockerfile</dockerFile>
-                                </build>
-                            </image>
-                        </images>
-                    </configuration>
-                </plugin>
                 <!--mvn versions:set -DprocessAllModules=true -DnewVersion=x.x.x-->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -124,6 +106,26 @@
                         <shortRevisionLength>7</shortRevisionLength>
                         <doCheck>false</doCheck>
                         <doUpdate>false</doUpdate>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${docker.plugin.version}</version>
+                    <configuration>
+                        <dockerHost>${docker.host}</dockerHost>
+                        <registry>${docker.registry}</registry>
+                        <pushRegistry>${docker.registry}</pushRegistry>
+                        <images>
+                            <image>
+                                <!--<name>${docker.registry}/${docker.namespace}/${project.name}:${project.version}</name>-->
+                                <name>${docker.registry}/${docker.namespace}/${project.name}:${buildNumber}</name>
+                                <build>
+                                    <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                                </build>
+                            </image>
+                        </images>
                     </configuration>
                 </plugin>
 
@@ -155,7 +157,7 @@
                 <artifactId>git-commit-id-plugin</artifactId>
                 <version>${git.commit.version}</version>
             </plugin>
-
+            <!--docker构建镜像-->
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -168,6 +170,26 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+            </plugin>
+            <!-- create jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Implementation-Version>${project.version}-${buildNumber}-${maven.build.timestamp}</Implementation-Version>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

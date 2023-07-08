@@ -1,10 +1,10 @@
 version: '3'
 services:
-  encryptor-boot:
+  hello_encryptor:
     build:
       context: ./
     restart: always
-    image: harbor.fulltruck.net/demo/encryptor-boot
-    container_name: encryptor-boot
+    image: ${REGISTRY}/${NAMESPACE}/hello-encryptor:${TAG}
+    container_name: hello-encryptor
     ports:
       - 8081:8081

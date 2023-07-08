@@ -1,4 +1,4 @@
-package com.example.encryptor.boot.controller;
+package com.example.hello.encryptor.controller;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

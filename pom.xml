@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>encryptor-boot</artifactId>
-    <version>0.0.1</version>
-    <name>encryptor-boot</name>
-    <description>encryptor-boot</description>
+    <artifactId>hello-encryptor</artifactId>
+    <version>0.0.5</version>
+    <name>hello-encryptor</name>
+
     <properties>
         <java.version>1.8</java.version>
 
@@ -21,15 +21,12 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.version>3.8.1</maven.compiler.version>
 
-        <!--docker相关配置-->
-        <docker.registry>harbor.fulltruck.net</docker.registry>
-        <docker.host>https://harbor.fulltruck.net</docker.host>
-        <docker.namespace>demo</docker.namespace>
-
-        <!--<docker.registry>192.168.2.200:5757</docker.registry>
+        <!--docker config-->
+        <docker.registry>192.168.2.200:5757</docker.registry>
         <docker.host>http://192.168.2.200:2375</docker.host>
-        <docker.namespace>demo</docker.namespace>-->
-        <docker.plugin.version>0.26.0</docker.plugin.version>
+        <docker.namespace>demo</docker.namespace>
+        <docker.plugin.version>0.43.0</docker.plugin.version>
+
         <versions-maven-plugin.version>2.3</versions-maven-plugin.version>
         <spring.checkstyle.version>0.0.34</spring.checkstyle.version>
         <git.commit.version>2.2.5</git.commit.version>
@@ -101,7 +98,7 @@
                         </images>
                     </configuration>
                 </plugin>
-
+                <!--mvn versions:set -DprocessAllModules=true -DnewVersion=x.x.x-->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
@@ -110,6 +107,26 @@
                         <generateBackupPoms>false</generateBackupPoms>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>buildnumber-maven-plugin</artifactId>
+                    <version>1.4</version>
+                    <executions>
+                        <execution>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>create</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <shortRevisionLength>7</shortRevisionLength>
+                        <doCheck>false</doCheck>
+                        <doUpdate>false</doUpdate>
+                    </configuration>
+                </plugin>
+
             </plugins>
         </pluginManagement>
 
@@ -146,19 +163,18 @@
                     <skip>false</skip>
                 </configuration>
             </plugin>
-
+            <!--使用maven命令进行版本升级-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
             </plugin>
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <excludes>
                         <exclude>
-                            <groupId>org.projectlombok</groupId>
+                            <groupId>org.project-lombok</groupId>
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>

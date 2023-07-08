@@ -1,18 +1,18 @@
-FROM openjdk:8-jre-alpine
+FROM docker.io/java:8-jre
 
-ENV JAVA_OPTS="-Xms100m -Xmx100m -Djava.security.egd=file:/dev/./urandom"
+MAINTAINER hi.jerry@outlook.com
 
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+ENV TZ=Asia/Shanghai
+ENV JAVA_OPTS="-Xms512m -Xmx1024m -Djava.security.egd=file:/dev/./urandom"
 
-RUN addgroup -S spring \
-    && adduser -S spring -G spring \
-    && ln -sf /usr /share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone \
-    && touch /app.jar
+RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-USER spring:spring
+RUN mkdir -p /encryptor-boot
+
+WORKDIR /encryptor-boot
 
 EXPOSE 8081
+
+ADD ./target/encryptor-boot.jar ./
 
 ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app.jar"]

@@ -1,13 +1,13 @@
-package com.example.encryptor.boot;
+package com.example.hello.encryptor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EncryptorBootApplication {
+public class HelloEncryptorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EncryptorBootApplication.class, args);
+        SpringApplication.run(HelloEncryptorApplication.class, args);
     }
 
 }

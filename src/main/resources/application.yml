@@ -12,31 +12,8 @@ jasypt:
 
 spring:
   datasource:
-    url: AWR(VrbqS06Z832nVS7Pb6e475XatX8K90HLYexBZwRITb6+YASTe8CheVZ66jagsCV5tbJx3dC61QAXBatQriCRSQIMdhnsj98KyrSznXsQ+jSDn27K/+68O7SCJ77u8gEvLPfbBtWCzbFLUU9vIRA8HufdVkgCC4NpMheP6bQnWOmrZjKMZfRyyu2EYEhG1HeDHo2BIBLlnn0EEFekbzRBp+/Qd6b+kKXOVhDZ5tW+uZ7UkTLy8rZyna6EYLqxBwtg0qmMxuPU8LaSM0HqxiRILw==)
-    username: AWR(kh0XN9tjYY0YVNgkQP4vj5nxM0M03iXzp5OlXx9WvJOxx2waiOXCcobCI2TryTkh)
-    password: AWR(kh0XN9tjYY0YVNgkQP4vj5nxM0M03iXzp5OlXx9WvJOxx2waiOXCcobCI2TryTkh)
+    url: AWR(U1bDWi/w7FNzreHyS1sDKm0Guz8WO5Ri8g3RU/oeB+w4cMRJzpCdX/+v6v3jPSl/TvO8vTqn/jrh/CW2d1fgl7kPJQr2cCBZ35IPU0qTnKADjVIj5BaqxlGLDwD2KOyOSzZdeW7MsCqn/K6gL1n6bPAf3ZquVzeqO+82+rYsvmstPOwCYkuKSebZjXD1/XMqcjIDguAbeiX/baK7ssJ0t/IX/xk9eBFK3HL4LStgyDOXMkHf/z0HNFp8NSMPlBxC4Ynvw3JFH4TSZ0uw+ttWRA==)
+    username: AWR(0zaD1+eskQVHqCHscVhtMHINbMhwlu1lCW+uNlqMqIW/mOSgogm749bG9KQIDqxe)
+    password: AWR(26zrct9KYQPBZLP8kFfyr3s6tLC95aPjtWeZHNxvrtW9clDIuLgftcbXng0ZuhVO)
 
-## Administrator:dl@18487258360#
-admin-pro:
-  account: AWR(pI+9kykkCW9mcvkUFKtnzrNacT80aMC5bxLnKR10apbbYWhAcPsFj+oFesgm/8ee)
-  password: AWR(mvwCh7xdbTtuO3zx8rMfjtZ4fqGdNp2NN3W6um3xYoOu9KuAYSbFZI+G1+paUocv)
-
-## ADMIN:VZ*TUwPP
-admin-test:
-  account: AWR(TszjvUtLHNdWBiss4aqpCbdyywReZuBxw0Q+cj/Vpz+8Yzs+ydPmsiiCj6u2XDiI)
-  #password: AWR(FUIYt579s+Jzo482lziEfoyRaF7wDI+/ylI5ac5qA47VqE0rteREm6fT5P35SPFw)
-  password: AWR(eU0udNkseHNr4vKu3Zs99t6rr6UKzgs2C6i3hxAmOusCOLLP4K1eF2ufJ+e21Ssg)
-
-aliyun:
-  storage:
-    ## 关闭通过阿里云ECS获取临时授权Token来授权oss
-    dynamic: false
-    accessID: AWR(xbtIRCe8HGDl1bu4D8XFm57ifLJYrCnLTbA2HNNWVFbKP+F6EDlt7hp3qisi9o+UgUc9e+x1KY0P/5clyH0R6A==)
-    accessSecretkey: AWR(c+1yroqKgQT+/l7gs7KLoTs8SBL4N3bl7slu8VIudlhR+d/5+DHSL1umXiSNgIXvqDRDdIQdEDAFcZb2nsXtuQ==)
-    endpoint: oss-cn-shanghai.aliyuncs.com
-    bucketName: fulltruck-test
-    tokenUrl: http://100.100.100.200/latest/meta-data/Ram/security-credentials/XXXXX-OSSReadWriteRole-XXXDEV
-  message:
-    accessID: AWR(MfFPd1hq9OW72k2nB74GKYTa/lvB39jej59DAXB6ybzS8APiZmCrPZzU3KMne+aEQxgcLaUi0fg940pqggB25g==)
-    accessSecretkey: AWR(zS0j5i/kL8xG3UjvLsEKlsw1Kyq1V9RushUJqcuUau0mJMm7RvPoKHz8F4Q6zUu0yttdKdx5OSrlBIMNHPQwtQ==)
 

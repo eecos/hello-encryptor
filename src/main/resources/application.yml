@@ -5,13 +5,13 @@ server:
 
 jasypt:
   encryptor:
-    password: WTt2x8ruSGE8ZSA7
+    password: encryptor@2023
     property:
-      prefix: AWR(
+      prefix: ENC(
       suffix: )
 
 spring:
   datasource:
-    url: AWR(U1bDWi/w7FNzreHyS1sDKm0Guz8WO5Ri8g3RU/oeB+w4cMRJzpCdX/+v6v3jPSl/TvO8vTqn/jrh/CW2d1fgl7kPJQr2cCBZ35IPU0qTnKADjVIj5BaqxlGLDwD2KOyOSzZdeW7MsCqn/K6gL1n6bPAf3ZquVzeqO+82+rYsvmstPOwCYkuKSebZjXD1/XMqcjIDguAbeiX/baK7ssJ0t/IX/xk9eBFK3HL4LStgyDOXMkHf/z0HNFp8NSMPlBxC4Ynvw3JFH4TSZ0uw+ttWRA==)
-    username: AWR(0zaD1+eskQVHqCHscVhtMHINbMhwlu1lCW+uNlqMqIW/mOSgogm749bG9KQIDqxe)
-    password: AWR(26zrct9KYQPBZLP8kFfyr3s6tLC95aPjtWeZHNxvrtW9clDIuLgftcbXng0ZuhVO)
+    url: ENC(Dyx/12qjdzBUyTsDGpvpNgUzxqqU7RuHGa/uaaS5FGFcBrEJYnAJSZqWM3UwXVs/BCI8jU50iimuXIV+LrWKju1fZjvDfmta2gMfC+C0whRKvKZd3oNkLMvorMbiNl1nj2UaE9fuORAaZqMyMxf5yQCljon6hvE9HeVjafJapD7wQIvWi2TgFOq3sDduDRuM62UceyIej+aOuD1Xx1SbBdwTPOAttw/rurGv1mo+bjertoC5ftTTNRjwL6XAI4qleXV6E77PEkUVyM5uZDaWxA==)
+    username: ENC(ICmlVs1gm3KOt6sz7BWS/A8+Gr+KwyWi6jpf2Fm4kirouWt3Og4sUUixWQP50GNq)
+    password: ENC(2hR06WKc7YSXKhFXaK0jUetzsGuagP4vFLJgMQn/g173j5anS1K8gTsBdaGI0IyK)
